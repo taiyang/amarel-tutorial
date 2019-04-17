@@ -84,7 +84,7 @@ You will end up with 9 input files in the folder `./input/`, with name from `inp
 
 ### Write Your Own SBATCH Script
 
-
+You may look at the [example file](../examples/r-project-example/run).
 
 ## References
 
