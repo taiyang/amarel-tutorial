@@ -86,6 +86,14 @@ You will end up with 9 input files in the folder `./input/`, with name from `inp
 
 You may look at the [example file](../examples/r-project-example/run).
 
+## Submit Your Job
+
+Simply run the following command from the project directory.
+
+```bash
+$ sbatch run
+```
+
 ## References
 
 * [An example of project structure](../examples/r-project-example)
