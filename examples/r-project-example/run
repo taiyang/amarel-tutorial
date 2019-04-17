@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#SBATCH --partition=main               # Partition
+#SBATCH --requeue                      # Return job to the queue if preempted
+#SBATCH --job-name=example             # Job name
+#SBATCH --nodes=1                      # How many nodes
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=500                      # Memory in MB
+#SBATCH --time=00:30:00                # Run time limit, 72 hours at most
+#SBATCH --output=out/slurm.%A.%a.out   # Output file
+#SBATCH --export=ALL
+#SBATCH -a 0-8                         # tasks to run, you may need to change the 8 here
+
+cd ~/r-project-example/  # Change to your project directory
+
+module purge
+module load intel/17.0.4 R-Project/3.4.1  # If you want use systemwide R
+
+echo ${SLURM_ARRAY_TASK_ID}
+srun Rscript --vanilla ./src/example.R < ./input/input.${SLURM_ARRAY_TASK_ID}
